@@ -18,7 +18,7 @@ def func_2(string):
             func_3(string)
         elif "*" or ":" or "*" and ":" not in string:
             func_3(string)
-
+    return string
 def func_3(string):
     for i in string:
         if i == "+" or i == "-":
@@ -29,10 +29,10 @@ def func_3(string):
                 func_3(string)
             else:
                 print(string)
-
+    return string
 string = list(input("Введите пример:\n"))
 
-func_2(string)
+print(func_2(string))
 
 
 
