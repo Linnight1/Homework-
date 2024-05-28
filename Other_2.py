@@ -21,15 +21,9 @@ list_1 = [9567, 9661, 6541, 4146, 534, 5627, 6900, 5803, 7794,
           4111, 7759, 158, 6482, 2444, 6931, 9917, 6325, 8541, 8535, 7060, 2782, 6913, 9085, 6724, 9380,
           4257, 6210, 7325, 7213, 8028, 3958, 3319]
 num = int(input("Введите число:\n"))
-list_2 = [i for i in list_1 if num > i]
-print(list_2)
-list_3 = [i for i in range(1000)]
-print(list_3)
-print([i for i in list_3 if i ** 2 in list_2])
+print([i ** 0.5 for i in list_1 if num > i])
 
-# list_2 = [4,9,16,25]
-# list_3 = [1,2,3,4,5,6,7,8]
-# print([i for i in list_3 if i ** 2 in list_2])
+
 
 
 
