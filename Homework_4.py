@@ -1,12 +1,13 @@
-def test_func(*params):
-    print(params)
-test_func(1,2,3,4,5,6,7)
-def func_1(n):
-    if n == 0:
-        return 1
-    else:
-        return n * func_1 (n - 1)
+# Создайте новый класс Buiding с атрибутом total
+# Создайте инициализатор для класса Buiding, который будет увеличивать атрибут количества созданных объектов класса
+# Building total
+# В цикле создайте 40 объектов класса Building и выведите их на экран командой print
+# Полученный код напишите в ответ к домашнему заданию
 
-
-
-print(func_1(5))
+class Building():
+    total = 0
+    def __init__(self):
+        Building.total += 1
+for i in range(1,41):
+    i = Building()
+    print(i.total)
