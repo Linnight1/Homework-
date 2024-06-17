@@ -1,17 +1,48 @@
-class House():
-    def __init__(self, name, number_of_floors):
+class Animal:
+    alive = True
+    fed = False
+
+    def __init__(self,name):
         self.name = name
-        self.number_of_floors = number_of_floors
 
-    def go_to(self, new_floor):
-        if new_floor in range(1, self.number_of_floors + 1):
-            for i in range(1, new_floor + 1):
-                if i <= self.number_of_floors:
-                    print(i)
-        else:
-            print("Такого этажа не существует")
+    def eat(self, food):
 
-h1 = House('ЖК Горский', 18)
-h2 = House('Домик в деревне', 2)
-h1.go_to(5)
-h2.go_to(10)
+        self.food = Plant
+        if food.edible == True:
+            print(f"{self.name} съел {food.name}")
+            self.fed = True
+        elif food.edible == False:
+            print(f"{self.name} не стал есть {food.name}")
+            self.alive = False
+class Mammal(Animal):
+    pass
+
+class Plant:
+    edible = False
+    def __init__(self,name):
+        self.name = name
+
+class Predator(Animal):
+    pass
+
+class Flower(Plant):
+    pass
+
+class Fruit(Plant):
+    edible = True
+
+
+a1 = Predator('Волк с Уолл-Стрит')
+a2 = Mammal('Хатико')
+p1 = Flower('Цветик семицветик')
+p2 = Fruit('Заводной апельсин')
+
+print(a1.name)
+print(p1.name)
+
+print(a1.alive)
+print(a2.fed)
+a1.eat(p1)
+a2.eat(p2)
+print(a1.alive)
+print(a2.fed)
