@@ -1,41 +1,48 @@
-from pprint import pprint
-class Product:
-    def __init__(self,name,weight,category):
+class Animal:
+    alive = True
+    fed = False
+
+    def __init__(self,name):
         self.name = name
-        self.weight = weight
-        self.category = category
-    def __str__(self):
-        return f"<{ self.name}>, <{self.weight}>, <{self.category}>"
-class Shop:
-    __file_name = 'products.txt'
-    def get_products(self):
-        file = open(self.__file_name, "r")
-        return file.read()
-        file.close()
+
+    def eat(self, food):
+
+        self.food = Plant
+        if food.edible == True:
+            print(f"{self.name} съел {food.name}")
+            self.fed = True
+        elif food.edible == False:
+            print(f"{self.name} не стал есть {food.name}")
+            self.alive = False
+class Mammal(Animal):
+    pass
+
+class Plant:
+    edible = False
+    def __init__(self,name):
+        self.name = name
+
+class Predator(Animal):
+    pass
+
+class Flower(Plant):
+    pass
+
+class Fruit(Plant):
+    edible = True
 
 
-    def add(self, *products):
-        self.products = products
-        for i in self.products:
-            file = open(self.__file_name,"r+")
-            if str(i.name) in file.read():
-                print(f"Продукт {i} уже есть в магазине")
-            else:
-                file.write(str(i) + "\n")
+a1 = Predator('Волк с Уолл-Стрит')
+a2 = Mammal('Хатико')
+p1 = Flower('Цветик семицветик')
+p2 = Fruit('Заводной апельсин')
 
-                file.close()
+print(a1.name)
+print(p1.name)
 
-
-s1 = Shop()
-p1 = Product('Potato', 50.5, 'Vegetables')
-p2 = Product('Spaghetti', 3.4, 'Groceries')
-p3 = Product('Potato', 5.5, 'Vegetables')
-
-print(p2) # __str__
-#
-s1.add(p1, p2, p3)
-#
-print(s1.get_products())
-
-
-
+print(a1.alive)
+print(a2.fed)
+a1.eat(p1)
+a2.eat(p2)
+print(a1.alive)
+print(a2.fed)
