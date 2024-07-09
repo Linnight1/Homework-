@@ -53,7 +53,7 @@ class Figure:
         else:
             for i in self.__sides:
                 side_list.append(i)
-                return side_list
+            return side_list
 
     def __len__(self):
         return sum(Figure.get_sides(self))
@@ -72,7 +72,7 @@ class Circle(Figure):
 
     def __radius(self):
 
-        return Circle.get_sides(self)[0] / 2 * math.pi
+        return Circle.get_sides(self)[0] / ( math.pi * 2)
 
     def get_square(self):
 
@@ -86,10 +86,12 @@ class Triangle(Figure):
 
 
     def __height(self):
-        return Figure.get_sides()[0] * math.sqrt(3) / 2
+        p = Figure.__len__(self) / 2
+        return (2 * math.sqrt(p  * (p - Triangle.get_sides(self)[0])*(p - Triangle.get_sides(self)[1])*(p -
+                             Triangle.get_sides(self)[2]))) / Triangle.get_sides(self)[0]
 
     def get_square(self):
-        return math.sqrt(3) / 4 * (Figure.get_sides()[0] ** 2)    # степень из трёх / 4 * (сторона в квадрате)
+        return Triangle.get_sides(self)[0] * Triangle.__height(self) / 2
 
 class Cube(Figure):
     sides_count = 12
@@ -131,9 +133,12 @@ c = Circle((200, 200, 100), (10, 15, 6))  # проверка на изменен
 print(c.get_sides())
 
 
+tr = Triangle((12,14,145),(12,13,14))
+print(tr.get_sides())
 
 
-
+print(tr.get_square())
+print(circle1.get_square())
 
 
 
