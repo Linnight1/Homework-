@@ -45,9 +45,9 @@ class Cafe:
 
                 threads2.append(th2)
 
-        for thread in threads2:
-            thread.join()
-            t.is_busy = True
+            for thread in threads2:
+                thread.join()
+                t.is_busy = True
 
 
         if t.is_busy == False:
