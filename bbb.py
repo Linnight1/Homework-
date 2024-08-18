@@ -35,7 +35,7 @@ class Cafe:
         for t in self.tables:
             if t.is_busy == True:
                 t.is_busy = False
-                th = Customer(self.customer, self.queue, t)
+                th = Customer(self,self.customer, self.queue, t)
                 th.start()
 
                 threads.append(th)
@@ -47,21 +47,23 @@ class Cafe:
 
 
 class Customer(Thread):
-    def __init__(self, num_customer, queue, num_table):
+    def __init__(self,cafe, num_customer, queue, num_table):
         super().__init__()
         self.num_customer = num_customer
         self.num_table = num_table
         self.queue = queue
+        self.cafe = cafe
 
     def run(self):
-        if self.queue.empty:
-            print(f"Посетитель № {self.num_customer} занял стол номер {self.num_table.number}")
-            time.sleep(5)
-            print(f"Посетитель № {self.num_customer} покушал и ушел")
-            self.num_table.is_busy = True
-        if self.queue.empty == False:
-            Cafe.serve_customer(self.queue.get())
-            self.queue.put(self.num_customer)
+
+        print(f"Посетитель № {self.num_customer} занял стол номер {self.num_table.number}")
+        time.sleep(5)
+        print(f"Посетитель № {self.num_customer} покушал и ушел")
+        self.num_table.is_busy = True
+        if self.queue.empty() == False:
+            self.cafe.serve_customer(self.queue.get())
+
+
 
 
 
