@@ -61,6 +61,7 @@ class Customer(Thread):
             self.num_table.is_busy = True
         if self.queue.empty == False:
             Cafe.serve_customer(self.queue.get())
+            self.queue.put(self.num_customer)
 
 
 
