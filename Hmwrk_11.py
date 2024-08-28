@@ -14,8 +14,9 @@ time = end - start
 print(f" Линейный: {time}")
 
 if __name__ == "__main__":
+    start2 = datetime.datetime.now()
     with multiprocessing.Pool(processes = 4) as pool:
-        start2 = datetime.datetime.now()
+
         pool.map(read_info, filenames)
     end2 = datetime.datetime.now()
     time2 = end2 - start2
