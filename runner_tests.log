@@ -1,0 +1,16 @@
+2024-08-28 17:50:24,660 | WARNING | Неверный тип данных для объекта Runner
+Traceback (most recent call last):
+  File "D:\for_pysharm\pythonProject2\.venv\Homeworks\Modul_12\tests_12_4.py", line 24, in test_run
+    self.some_obj = Test_12_4.Runner(123)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\for_pysharm\pythonProject2\.venv\Homeworks\Modul_12\Test_12_4.py", line 6, in __init__
+    raise TypeError(f'Имя может быть только строкой, передано {type(name).__name__}')
+TypeError: Имя может быть только строкой, передано int
+2024-08-28 17:50:24,661 | WARNING | Неверная скорость для Runner
+Traceback (most recent call last):
+  File "D:\for_pysharm\pythonProject2\.venv\Homeworks\Modul_12\tests_12_4.py", line 12, in test_walk
+    self.some_obj = Test_12_4.Runner("obj",-10)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\for_pysharm\pythonProject2\.venv\Homeworks\Modul_12\Test_12_4.py", line 11, in __init__
+    raise ValueError(f'Скорость не может быть отрицательной, сейчас {speed}')
+ValueError: Скорость не может быть отрицательной, сейчас -10
