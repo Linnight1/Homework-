@@ -5,6 +5,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+import botik
 kb = ReplyKeyboardMarkup(resize_keyboard=True)
 button = KeyboardButton(text="Рассчитать")
 button2 = KeyboardButton(text="Купить")
@@ -34,13 +35,13 @@ async def start(message):
     await message.answer("Привет! Я бот, помогающий твоему здоровью.", reply_markup=kb)
 @dp.message_handler(text=["Купить"])
 async def get_buying_list(message):
-    with open("img1.jpg", "rb") as img:
+    with open("botik/img1.jpg", "rb") as img:
         await message.answer_photo(img, "Название: Бальзам-ополаскиватель 'Лошадиная сила'| Счастье для ваших волос| Стоимость: 100 руб")
-    with open("img2.jpg", "rb") as img:
+    with open("botik/img2.jpg", "rb") as img:
         await message.answer_photo(img, "Название: Маска для волос 'Лошадиная сила'| Счастье для ваших волос| Стоимость: 200 руб")
-    with open("img3.jpg", "rb") as img:
+    with open("botik/img3.jpg", "rb") as img:
         await message.answer_photo(img, "Название: Гель 'Лошадиная сила'| Гель с конским каштаном и экстрактом пиявки| Стоимость: 200 руб")
-    with open("img4.jpg", "rb") as img:
+    with open("botik/img4.jpg", "rb") as img:
         await message.answer_photo(img, "Название: Детский шампунь 'Лошадиная сила'| Лошадиная сила для ваших детей| Стоимость: 250 руб", reply_markup=catalog_kb)
 
 @dp.callback_query_handler(text="calories")
